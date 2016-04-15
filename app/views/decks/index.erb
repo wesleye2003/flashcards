@@ -1,0 +1,24 @@
+<!-- NAV -->
+<nav>
+  <ul>
+    <% if session[:user_id] %>
+      <li><a href="/users/<%= session[:user_id]%>"><% @user.username %></li>
+      <li><a href="/logout">login</a></li>
+    <% else %>
+      <li><a href="/users/new">register</a></li>
+      <li><a href="/login">login</a></li>
+    <% end %>
+     <li><a href="/">home</a></li>
+  </ul>
+</nav>
+
+<!-- DISPLAY ALL DECKS -->
+<div>
+  <ul>
+    <% @decks.each do |deck| %>
+      <li>
+        <a href="/decks/<%= deck.id %>"><%= deck.name %></a>
+      </li>
+    <% end %>
+  </ul>
+</div>

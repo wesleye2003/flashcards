@@ -1,3 +1,5 @@
 get "/decks" do
-		erb :"views/index"
+    @decks = Deck.all
+		erb :"decks/index"
 end
+
