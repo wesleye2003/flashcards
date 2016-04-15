@@ -21,7 +21,7 @@
     <nav class="top">
       <ul>
         <% if session[:user_id] %>
-          <li><a href="/users/<%= session[:user_id]%>"><% @user.username %></a></li>
+          <li><a href="/users/<%= session[:user_id] %>"><%= current_user.username %></a></li>
           <li><a href="/logout">logout</a></li>
         <% else %>
           <li><a href="/users/new">register</a></li>
