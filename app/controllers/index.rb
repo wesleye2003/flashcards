@@ -18,6 +18,9 @@ post '/users' do
 end
 
 get '/users/:id' do
+  redirect '/login' unless session[:loggedin] = true
+  @user = User.find(params[:id])
+  @rounds = @user.rounds
   erb :profile
 end
 

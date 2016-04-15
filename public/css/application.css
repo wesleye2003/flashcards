@@ -31,3 +31,44 @@ body {
   background-image: url("blackboard.jpg");
   color: white;
 }
+.deck_holder li{
+  text-decoration: none;
+  background-color: #4E6952;
+  margin-bottom: 15px;
+  margin-top: 15px;
+  list-style-type: none;
+  width: 100px;
+  text-align: center;
+}
+
+.deck_holder a {
+  text-decoration: none;
+  color: white;
+}
+
+#profile li {
+  list-style-type: none;
+}
+#profile table {
+  table-layout: fixed;
+  border: 2px solid white;
+  }
+#profile tr {
+  width: 175px;
+  border: 2px solid white;
+}
+
+#profile td {
+  width: 175px;
+  border: 2px solid white;
+ }
+#list_bar {
+  list-style-type: none;
+  margin-left: 70%;
+  color: white;
+}
+
+#list_bar a {
+  text-decoration: none;
+  color: white;
+}
