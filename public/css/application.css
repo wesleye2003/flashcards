@@ -10,6 +10,24 @@
 
 .container {
   width: 50%;
-  margin-left: 43%;
+  margin-left: 10%;
+  background-color: white;
+}
 
+#title {
+  text-align: center;
+  font-family: copperplate;
+  color: #800000;
+  background-color: #b3b3cc;
+  width: 35%;
+  margin-left: 32.5%;
+}
+.deck_holder {
+  width: 50%;
+  margin-left: 25%;
+}
+.deck_holder h1 { text-align: center;}
+body {
+  background-image: url("blackboard.jpg");
+  color: white;
 }
