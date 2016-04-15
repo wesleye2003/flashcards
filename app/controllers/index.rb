@@ -32,7 +32,7 @@ end
 post '/decks/:deck_id' do
   # if guess correct
     # mark question in session
-    session[:cards] <<
+    # session[:cards] <<
 
 end
 
