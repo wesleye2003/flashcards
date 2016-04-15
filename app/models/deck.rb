@@ -4,6 +4,8 @@ class Deck < ActiveRecord::Base
   has_many :users, through: :rounds
   has_many :cards
 
+  validates :name, presence: true
+
   def number_of_cards
     cards = Cards.all
     count = cards.count
