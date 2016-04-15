@@ -23,8 +23,17 @@ get '/decks' do
 end
 
 get '/decks/:deck_id' do
-  #params to get the deck we
-  erb :'selected_deck'
+  @deck = Deck.find(params[:deck_id])
+  @card = @deck.cards.sample #
+  # check that card has not been done
+  erb :'question'
+end
+
+post '/decks/:deck_id' do
+  # if guess correct
+    # mark question in session
+    # session[:cards] <<
+
 end
 
 get '/login' do
