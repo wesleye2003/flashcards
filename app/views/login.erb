@@ -1,0 +1,19 @@
+<div class="container">
+  <h1>Login</h1>
+
+  <% if @login_error %>
+    <h4> Login information is not correct, please try again</h4>
+  <% end %>
+
+  <form class="new_form" method="post" action="/login">
+    <label for="username">Username:</label>
+    <input id="username" name="username" type="text" value="">
+    <label for="password">Password:</label>
+    <input id="password" name="password" type="text" value="">
+    <input type="submit" value="Login" class="button">
+  </form>
+
+  <a id="creator"href='/users/new'>Create a new account</a>
+
+
+</div>
