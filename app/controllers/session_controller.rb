@@ -1,7 +1,9 @@
+# user login page
 get '/login' do
 	erb :login
 end
 
+# handle submission of user login credentials
 post '/login' do
 	user = User.authenticate(params[:username], params[:password_text])
 	if user
@@ -13,6 +15,7 @@ post '/login' do
 	end
 end
 
+# logs out current user 
 get '/logout' do
 	session.delete(:user_id)
 	redirect "/"
