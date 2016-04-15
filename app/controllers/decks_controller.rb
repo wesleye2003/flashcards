@@ -1,3 +1,4 @@
 get "/decks" do
-		erb :"views/index"
+		erb :"/decks/index"
 end
+
