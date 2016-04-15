@@ -25,7 +25,8 @@ get '/users/:id' do
 end
 
 get '/logout' do
-  sessions.clear
+  session[:loggedin] = false
+  session.clear
   redirect '/decks'
 end
 
@@ -35,7 +36,7 @@ get '/decks' do
 end
 
 get '/decks/:deck_id' do
-  redirect '/login' unless session[:loggedin] = true
+  redirect '/decks' unless session[:loggedin] == true
   #params to get the deck we
 
   @deck = Deck.find(params[:deck_id])
@@ -77,7 +78,7 @@ post '/login' do
   if User.authenticate(params[:username], params[:password])
       session[:loggedin] = true
       # session[:user_name] = User.find_by(email: params[:email]).username
-      session[:user_id] = User.find_by(username: params[:username]).id
+      session[:user_id] = User.find_by(username: params[:username])
       redirect '/decks' #need to figure this out path
   else
       @login_error = true
