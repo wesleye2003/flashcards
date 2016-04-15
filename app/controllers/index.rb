@@ -4,13 +4,24 @@ def create
   @user.save!
 end
 
+get '/' do
+  redirect '/decks'
+end
+
 get '/users/new' do
   erb :'create'
 end
 
-post 'users' do
+post '/users' do
   create
   redirect '/login'
+end
+
+get '/users/:id' do
+  redirect '/login' unless session[:loggedin] = true
+  @user = User.find(params[:id])
+  @rounds = @user.rounds
+  erb :profile
 end
 
 get '/logout' do
@@ -19,10 +30,12 @@ get '/logout' do
 end
 
 get '/decks' do
+  @decks = Deck.all
   erb :'decks'
 end
 
 get '/decks/:deck_id' do
+  redirect '/login' unless session[:loggedin] = true
   #params to get the deck we
   erb :'selected_deck'
 end

@@ -3,7 +3,6 @@ require 'bcrypt'
 class User < ActiveRecord::Base
 
   has_many :rounds
-
   validates :username, presence: true, uniqueness: true
   validates :password_hash, presence: true
 
