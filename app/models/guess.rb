@@ -1,5 +1,7 @@
 class Guess < ActiveRecord::Base
+  # belongs to rounds table
   belongs_to :round
+  # belongs to cards table
   belongs_to :card
 
   validates :round, presence: true
