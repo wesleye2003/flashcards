@@ -3,7 +3,7 @@ get '/users/:user_id' do
   # @user = current_user
   # @profile = @user.profile
 
-  erb :"views/users/profile/index"
+  erb :"users/profiles/index"
 end
 
 
