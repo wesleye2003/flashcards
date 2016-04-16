@@ -1,13 +1,6 @@
-get '/users/:user_id' do
-  redirect '/' unless current_user
-  # @user = current_user
-  # @profile = @user.profile
 
+	#redirect home if current user tries to visit another user's profile
+  redirect '/' unless params[:user_id] == current_user.id
   erb :"users/profiles/index"
 end
-
-
-
-
-
 
