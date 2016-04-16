@@ -1,0 +1,7 @@
+<!-- RESULTS -->
+<div>
+  <h2><%= @deck.name %></h2>
+  <p> You've completed a round of <%= @deck.name %>.<p>
+  <p> You answered <%= @round.number_right_first_try %>/<%= @deck.cards.count %> cards correctly on the first try.<p>
+  <p> You submitted <%= @round.guesses.count %> total guesses before each card was answered correctly.<p>
+</div>
