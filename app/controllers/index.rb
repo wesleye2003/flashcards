@@ -38,15 +38,18 @@ end
 get '/decks/:deck_id' do
   redirect '/decks' unless session[:loggedin] == true
   #params to get the deck we
-  # session[:round] =
+  # new_round = Round.create(user_id: session[:user_id], deck_id: params[:deck_id])
+  # session[:round] = new_round.id
+  # round = Round.find(session[:round])
   @deck = Deck.find(params[:deck_id])
   @possible_cards = @deck.cards.select do |card|
     guess = Guess.find_by(card: card, round_id: session[:round])
     guess.nil? || (guess.correct == false)
   end
 
-  round_id = session[:round]
-  user_id = Round.find(round_id).user.id
+  # round_id = session[:round]
+  # user_id = Round.find(round_id).user.id
+  user_id = session[:user_id]
   # user_id = 1 # temp
   redirect "/users/#{user_id}" if @possible_cards.empty?
 
@@ -54,8 +57,17 @@ get '/decks/:deck_id' do
   erb :'question'
 end
 
+get '/start_deck/:id' do
+  new_round = Round.create(user_id: session[:user_id], deck_id: params[:deck_id])
+  session[:round] = new_round.id
+  redirect "/decks/#{params[:id]}"
+end
+
 post '/decks/:deck_id' do
-  Round.find(session[:round]).total_attempts += 1
+ round = Round.find_by(session[:round])
+
+  new_count = round.total_attempts + 1
+  round.update_attributes(total_attempts: new_count)
 
   given_guess = params[:guess]
   @deck = Deck.find(params[:deck_id])
