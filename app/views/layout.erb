@@ -23,7 +23,7 @@
     <% if session[:loggedin] != true %>
   <li id="list_bar"> <a href="/login">Login</a>  |  <a href="/users/new">Register</a>  |  <a href="/decks">Home</a></li>
 <%else%>
-      <li id="list_bar"> <a href="/logout">Logout</a>  |  <a href="/users/<%=session[:user_id] %>"><%= session[:user_id].username %></a>  |  <a href="/decks">Home</a></li>
+      <li id="list_bar"> <a href="/logout">Logout</a>  |  <a href="/users/<%=session[:user_id] %>"><%= session[:user_name] %></a>  |  <a href="/decks">Home</a></li>
       <%end%>
   </ul>
   <%= yield %>

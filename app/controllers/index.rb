@@ -38,7 +38,7 @@ end
 get '/decks/:deck_id' do
   redirect '/decks' unless session[:loggedin] == true
   #params to get the deck we
-
+  # session[:round] =
   @deck = Deck.find(params[:deck_id])
   @possible_cards = @deck.cards.select do |card|
     guess = Guess.find_by(card: card, round_id: session[:round])
@@ -91,8 +91,8 @@ end
 post '/login' do
   if User.authenticate(params[:username], params[:password])
       session[:loggedin] = true
-      # session[:user_name] = User.find_by(email: params[:email]).username
-      session[:user_id] = User.find_by(username: params[:username])
+      session[:user_name] = User.find_by(username: params[:username]).username
+      session[:user_id] = User.find_by(username: params[:username]).id
       redirect '/decks' #need to figure this out path
   else
       @login_error = true
