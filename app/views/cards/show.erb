@@ -2,7 +2,7 @@
   <!-- card.question, card.answer, card.deck_id -->
 
   <h1><%= @card.question %></h1>
-  <form method="post" action="/decks/<%=@deck.id%>/cards/<%=@card.id%>/rounds/<%=@round.id%>">
+  <form method="post" action="/rounds/<%=@round.id%>/cards/<%=@card.id%>">
     <label for="answer">Answer:</label>
     <input id="answer" name="guess" type="text" value="">
     <input type="submit" value="Submit">

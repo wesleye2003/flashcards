@@ -9,11 +9,15 @@ class Round < ActiveRecord::Base
 
   def number_right_first_try
     cards = self.cards
-    count = cards.count { |card| card.guesses.count == 1 }
-    count
+
+    first_try_cards = cards.select { |card|
+      card.guesses.count == 1
+    }
+    first_try_cards.count
   end
 
   # def number_of_guesses
   #   self.guesses.count
   # end
 end
+
