@@ -54,3 +54,7 @@ table {
   padding-left: 1em;
   padding-top:1em;
 }
+
+.wrong {
+  color: #FF0000;
+}

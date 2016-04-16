@@ -29,9 +29,12 @@ post "/rounds/:round_id/cards/:id" do
   guess = @card.guesses.new(round_id: @round.id, response: params[:guess])
   if guess.response == @card.answer
     guess.correct = true
+    guess.save
+    redirect "/decks/#{@deck.id}/rounds/#{@round.id}"
   else
     guess.correct = false
+    @message = "You answered incorrectly. The answer was: #{@card.answer}."
+    guess.save
+    erb :"cards/show"
   end
-  guess.save
-  redirect "/decks/#{@deck.id}/rounds/#{@round.id}"
 end

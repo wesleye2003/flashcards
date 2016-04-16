@@ -1,6 +1,11 @@
 <div class="display-card">
   <!-- card.question, card.answer, card.deck_id -->
 
+  <% if @message %>
+  	<p class="wrong"><%= @message %></p>
+  <% end %>
+
+
   <h1><%= @card.question %></h1>
   <form method="post" action="/rounds/<%=@round.id%>/cards/<%=@card.id%>">
     <label for="answer">Answer:</label>
