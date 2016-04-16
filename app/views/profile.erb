@@ -8,15 +8,15 @@
           <td>Date</td>
           <td>Deck</td>
           <td>Cards in Deck</td>
-          <td>First Guess Correct</td>
-          <td>Total Guesses</td>
+          <!-- <td>First Guess Correct</td> -->
+          <td>Total Guesses for Completion</td>
         </tr>
           <% @rounds.each do |round| %>
         <tr>
               <td> <%= round.created_at %> </td>
               <td> <%= round.deck.name %> </td>
               <td> <%= round.deck.cards.count %> </td>
-              <td> <%= round.correct_first_try %> </td>
+              <!-- <td> <%= round.correct_first_try %> </td> -->
               <td> <%= round.total_attempts %> </td>
         </tr>
           <% end %>

@@ -17,10 +17,17 @@ post '/users' do
   redirect '/login'
 end
 
+get '/users/lastround' do
+  @last_round = User.find(session[:user_id]).rounds.last
+  @total_questions = @last_round.deck.cards.count
+  erb :score
+end
+
 get '/users/:id' do
   redirect '/login' unless session[:loggedin] = true
   @user = User.find(params[:id])
-  @rounds = @user.rounds
+  rounds = @user.rounds
+  @rounds = rounds.reverse
   erb :profile
 end
 
@@ -42,29 +49,31 @@ get '/decks/:deck_id' do
   # session[:round] = new_round.id
   # round = Round.find(session[:round])
   @deck = Deck.find(params[:deck_id])
+  p @deck
   @possible_cards = @deck.cards.select do |card|
+    p card
     guess = Guess.find_by(card: card, round_id: session[:round])
     guess.nil? || (guess.correct == false)
   end
-
+  p @possible_cards
   # round_id = session[:round]
   # user_id = Round.find(round_id).user.id
   user_id = session[:user_id]
   # user_id = 1 # temp
-  redirect "/users/#{user_id}" if @possible_cards.empty?
+  redirect "/users/lastround" if @possible_cards.empty?
 
   @card = @possible_cards.sample
   erb :'question'
 end
 
 get '/start_deck/:id' do
-  new_round = Round.create(user_id: session[:user_id], deck_id: params[:deck_id])
+  new_round = Round.create(user_id: session[:user_id], deck_id: params[:id])
   session[:round] = new_round.id
   redirect "/decks/#{params[:id]}"
 end
 
 post '/decks/:deck_id' do
- round = Round.find_by(session[:round])
+ round = Round.find(session[:round])
 
   new_count = round.total_attempts + 1
   round.update_attributes(total_attempts: new_count)
