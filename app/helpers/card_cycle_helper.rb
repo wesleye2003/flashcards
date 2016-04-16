@@ -11,6 +11,3 @@ helpers do
 	  results.shuffle!
 	end
 end
-
-
-# cards = deck.cards {|card| card.guesses.correct != true}

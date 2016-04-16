@@ -4,18 +4,18 @@
   <table>
     <thead>
       <!-- #Deck name goes here -->
-      <th><%= round.deck.name  %></th>
+      <th class="centered"><%= round.deck.name  %></th>
     </thead>
     <tbody>
       <tr>
-        <th>Date</th>
-        <th>Cards in Deck</th>
-        <th>First Guess Correct</th>
-        <th>Total Guesses</th>
+        <th class="centered">Date</th>
+        <th class="centered">Cards in Deck</th>
+        <th class="centered">First Guess Correct</th>
+        <th class="centered">Total Guesses</th>
       </tr>
       <!-- #loop through each round played by user of deck -->
       <tr>
-        <td><%= round.created_at %></td>
+        <td><%= round.created_at.to_date.mon %>/<%= round.created_at.to_date.day %>/<%= round.created_at.to_date.year %></td>
         <td><%= round.deck.cards.count %></td>
         <td><%= round.number_right_first_try  %></td>
         <td><%= round.guesses.count %></td>
