@@ -22,7 +22,7 @@ class User < ActiveRecord::Base
 
   def self.authenticate(username, password)
     user = self.find_by(username: username)
-    if user && user.password == password 
+    if user && user.password == password
     	return user
     else
     	return nil
@@ -31,7 +31,7 @@ class User < ActiveRecord::Base
 
   def password_requirements
   	unless @raw_password && @raw_password.length >= User::MIN_PASSWORD_LENGTH
-      errors.add(:password, "must be 6 characters long") 
+      errors.add(:password, "must be 6 characters long")
     end
   end
 end

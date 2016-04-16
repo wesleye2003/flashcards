@@ -10,9 +10,24 @@
 <% end %>
 
 <form action="/users" method='post'>
-	<h2>Create a new user!</h2>
-  <p>Username: <input type='text' name='user[username]'></p>
-  <p>Email Address: <input type='email' name='user[email]'></p>
-  <p>Password: <input type='password' name='user[password]'></p>
-  <input type='submit'>
+
+  <h2>Create a new user!</h2>
+  <div class="form-group">
+    <label for="exampleInputEmail1">Email address</label>
+    <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Email" name='user[email]'>
+    <!-- <p>Username: <input type='text' name='user[username]'></p> -->
+  </div>
+  <div class="form-group">
+    <label for="exampleInputEmail1">User Name</label>
+    <input type="text" class="form-control" id="exampleInputEmail1" placeholder="text" name='user[username]'>
+  </div>
+  <div class="form-group">
+    <label for="exampleInputPassword1">Password</label>
+    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password" name='user[password]'>
+  </div>
+
+  <!-- <p>Email Address: <input type='email' name='user[email]'></p> -->
+  <!-- <p>Password: <input type='password' name='user[password]'></p> -->
+  <button type="submit" class="btn btn-default">Submit</button>
+  <!-- <input type='submit'> -->
 </form>
