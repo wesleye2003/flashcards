@@ -1,3 +1,4 @@
+
 # Shuffles a supplied deck's cards
 helpers do
 	def shuffled_cards(deck_id)
