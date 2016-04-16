@@ -1,0 +1,5 @@
+<p> Here is how you scored on your round</p>
+  <ul>
+    <li> It took you <%= @last_round.total_attempts %> attempts to get the <%= @total_questions %> questions correct! </li>
+  </ul>
+  <a class="quest_click"href="/users/<%=session[:user_id] %>">Click Here To Visit Profile Page</a>

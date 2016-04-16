@@ -1,0 +1,19 @@
+<div class="container">
+  <h1>Create an Account</h1>
+
+  <% if @create_error %>
+    <h4>User cannot be created because: </h4>
+  <% end %>
+
+  <form class="new_form" method="post" action="/users">
+    <label for="username">Username:</label>
+    <input id="username" name="username" type="text" value="">
+    <label for="password">Password:</label>
+    <input id="password" name="password" type="text" value="">
+    <input type="submit" value="Create" class="button">
+  </form>
+
+
+
+
+</div>
