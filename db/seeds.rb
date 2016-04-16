@@ -4,6 +4,18 @@ wes = User.new(username: 'wes', email: 'wes@wes.com')
 wes.password = "password"
 wes.save
 
+josh = User.new(username: 'josh', email: 'josh@josh.com')
+josh.password = "password"
+josh.save
+
+rocky = User.new(username: 'rocky', email: 'rocky@rocky.com')
+rocky.password = "password"
+rocky.save
+
+erica = User.new(username: 'erica', email: 'erica@erica.com')
+erica.password = "password"
+erica.save
+
 deck_1 = Deck.create(name: 'random_deck_1')
 
 deck_2 = Deck.create(name: 'random_deck_2')
