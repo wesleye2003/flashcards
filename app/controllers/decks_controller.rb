@@ -5,5 +5,5 @@ get "/decks" do
 end
 
 get "/decks/:id" do
-  redirect "decks/#{params[:id]}/rounds/new"
+  redirect "/decks/#{params[:id]}/rounds/new"
 end

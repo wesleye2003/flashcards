@@ -12,7 +12,8 @@ class Round < ActiveRecord::Base
     cards = self.cards
 
     first_try_cards = cards.select { |card|
-      card.guesses.count == 1
+      guesses = card.guesses.where(round_id: self.id)
+      guesses.count == 1
     }
     first_try_cards.count
   end

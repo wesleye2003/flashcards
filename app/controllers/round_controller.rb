@@ -13,7 +13,11 @@ get "/decks/:deck_id/rounds/:id" do
     @card = cards.pop
     erb :"cards/show"
   else
-    @round.destroy unless current_user
+    if current_user
+      current_user.rounds << @round
+    else
+      @round.destroy
+    end
     erb :"rounds/results"
   end
 end
