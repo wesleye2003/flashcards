@@ -1,7 +1,6 @@
 # Display all decks
 get "/decks" do
   @decks = Deck.all
-
 	erb :"decks/index"
 end
 
@@ -13,6 +12,6 @@ get '/decks/:id/results' do
 end
 
 get "/decks/:id" do
-  @round = Round.new(deck_id: params[:id])
+  redirect "decks/:deck_id/rounds/:id"
 end
 

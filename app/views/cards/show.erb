@@ -1,8 +1,8 @@
 <div class="display-card">
   <!-- card.question, card.answer, card.deck_id -->
 
-  <h1><%= card.question %></h1>
-  <form method="post" action="/cards/:id">
+  <h1><%= @card.question %></h1>
+  <form method="post" action="/decks/<%=@deck.id%>/cards/<%=@card.id%>/rounds/<%=@round.id%>">
     <label for="answer">Answer:</label>
     <input id="answer" name="guess" type="text" value="">
     <input type="submit" value="Submit">

@@ -3,7 +3,7 @@ class Guess < ActiveRecord::Base
   belongs_to :round
   # belongs to cards table
   belongs_to :card
-  belongs_to :user, through: :round
+  belongs_to :user
 
   validates :round, presence: true
   validates :card, presence: true
