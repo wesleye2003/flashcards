@@ -3,6 +3,12 @@ get '/users/new' do
   erb :"users/new"
 end
 
+get '/users/:id' do
+  # redirect home if current user tries to visit another user's profile
+  # redirect '/' unless params[:user_id] == current_user.id
+  erb :"users/profiles/index"
+end
+
 # creates new user from supplied information, or shows errors if user
 # cannot be created.
 post '/users' do
