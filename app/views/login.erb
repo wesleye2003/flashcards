@@ -1,11 +1,9 @@
 <% if @errors %>
-  <div>
-    <span>There was a problem with your credentials:</span>
-    <ul>
-      <% @errors.each do |error| %>
-        <li><%= error %></li>
-      <%end%>
-    </ul>
+  <div class="wrong">
+    <p>There was a problem with your credentials:</p>
+    <% @errors.each do |error| %>
+      <%= error %>
+    <%end%>
   </div>
 <% end %>
 
