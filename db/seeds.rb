@@ -16,19 +16,19 @@ erica = User.new(username: 'erica', email: 'erica@erica.com')
 erica.password = "password"
 erica.save
 
-deck_1 = Deck.create(name: 'Hipster bands')
+deck_1 = Deck.create(name: 'Hipster Albums')
 
-deck_2 = Deck.create(name: 'Developers 101')
+deck_2 = Deck.create(name: 'Nonexistent Web Apps 101')
 
-deck_3 = Deck.create(name: 'Book genres')
+deck_3 = Deck.create(name: 'Book Genres')
 
-deck_4 = Deck.create(name: 'Superhero powers')
+deck_4 = Deck.create(name: 'Superhero Powers')
 
 deck_5 = Deck.create(name: 'Star Wars')
 
 5.times do 
 
-	deck_1.cards.create(question: "Have you heard #{Faker::Hipster.words(2).join}'s latest album?", answer: "yes")
+	deck_1.cards.create(question: "What is the name of #{Faker::Hipster.words(2).join}'s latest album?", answer: Faker::Hipster.word)
 
 	deck_2.cards.create(question: "Who developed #{Faker::App.name}?", answer: Faker::App.author)
 
