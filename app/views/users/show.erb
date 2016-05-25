@@ -1,0 +1,22 @@
+<h2>Here's your round history, <%=current_user.username %>.</h2>
+ <!-- Erb start looping through all rounds and get statistics -->
+<% current_user.rounds.each do |round|   %>
+  <table>
+      <h3 class="centered table_title"><%= round.deck.name  %></h3>
+    <tbody>
+      <tr>
+        <th class="centered">Date</th>
+        <th class="centered">Cards in Deck</th>
+        <th class="centered">Correct on First Guess</th>
+        <th class="centered">Total Guesses</th>
+      </tr>
+      <!-- #loop through each round played by user of deck -->
+      <tr>
+        <td><%= round.created_at.to_date.mon %>/<%= round.created_at.to_date.day %>/<%= round.created_at.to_date.year %></td>
+        <td><%= round.deck.cards.count %></td>
+        <td><%= round.number_right_first_try  %></td>
+        <td><%= round.guesses.count %></td>
+      </tr>
+    </tbody>
+  </table>
+<% end %>

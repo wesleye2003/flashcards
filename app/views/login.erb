@@ -1,0 +1,15 @@
+<% if @errors %>
+  <div class="wrong">
+    <p>There was a problem with your credentials:</p>
+    <% @errors.each do |error| %>
+      <%= error %>
+    <%end%>
+  </div>
+<% end %>
+
+<form action="/login" method='post'>
+	<h2>Login!</h2>
+  Username: <input type='text' name='username'>
+  Password: <input type='password' name='password_text'>
+  <input type='submit'>
+</form>
